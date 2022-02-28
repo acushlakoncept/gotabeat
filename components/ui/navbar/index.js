@@ -6,8 +6,17 @@ import { useState } from "react";
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
+   const MENU = [
+     { title: "Beat Makers", url: "/#" },
+     { title: "Beat Users", url: "/#" },
+     { title: "Pricing", url: "/#" },
+     { title: "Licenses", url: "/#" },
+     { title: "About Us", url: "/#" },
+     { title: "Contact", url: "/#" },
+   ]
+
     return (
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
+    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900 opacity-80">
       <div className={`container flex ${navbarOpen && 'flex-wrap'} justify-between items-center mx-auto`}>
         <ActiveLink href="/">
           <a className="flex">
@@ -28,38 +37,13 @@ export default function Navbar() {
 
         <div className={`${navbarOpen ? '' : 'hidden'} w-full md:block md:w-auto" id="mobile-menu`}>
           <ul className="flex flex-col justify-end mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-            <li>
-              <ActiveLink href="/#">
-              <a className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Beat Makers</a>
+            {MENU.map(({ title, url }, index) => (
+            <li key={index}>
+              <ActiveLink href={url}>
+              <a className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">{title}</a>
               </ActiveLink>
             </li>
-            <li>
-              <ActiveLink href="/#">
-                <a className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Beat Users</a>
-              </ActiveLink>
-            </li>
-            <li>
-              <ActiveLink href="/#">
-                <a className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Pricing</a>
-              </ActiveLink>
-            </li>
-            <li>
-              <ActiveLink href="/#">
-              <a className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Licenses</a>
-              </ActiveLink>
-            </li>
-
-            <li>
-              <ActiveLink href="/#">
-              <a className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About Us</a>
-              </ActiveLink>
-            </li>
-            
-            <li>
-              <ActiveLink href="/#">
-              <a className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
-              </ActiveLink>
-            </li>
+            ))}
           </ul>
         </div>
 
