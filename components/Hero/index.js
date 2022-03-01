@@ -26,7 +26,7 @@ export default function Hero ({handleSearch, searchResults}) {
             onBlur={() => setSearchFocus(false)}
             type="search" name="q" 
             className="searchBeats py-2 w-96 text-md text-white bg-gray-300 rounded-full pl-10 focus:outline-none focus:bg-white focus:text-gray-900" placeholder="Search by genre, mood, instrument, keyword" autoComplete="off" />
-          <div className={`${searchFocus ? '' : 'hidden'} w-96 bg-gray-100 text-left mt-1 py-2 px-4 absolute z-50 rounded-sm max-h-72 overflow-scroll text-md`}>
+          <div className={`${searchFocus && searchResults.length > 0 ? '' : 'hidden'} w-96 bg-gray-100 text-left mt-1 py-2 px-4 absolute z-50 rounded-sm max-h-72 overflow-scroll text-md`}>
             {searchResults.map((result, index) => (
               <p key={index} className='border-b-2 py-2'>{result}</p>
             ))}
