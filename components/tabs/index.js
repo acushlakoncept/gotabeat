@@ -130,7 +130,7 @@ export default function TabsRender ({handlePlay, btnUrl, playPause}) {
                             <div key={index} className="flex items-center my-2 border-b-2 pb-2">
                               <span className="mr-3 cursor-pointer hover:text-orange-800 text-4xl">
                                 <div 
-                                  onClick={() => handlePlay(beat.url)}
+                                  onClick={() => handlePlay(beat)}
                                   >
                                   {btnUrl === beat.url && playPause ? <AiOutlinePauseCircle /> : <BsPlayCircle />}
                                 </div>
@@ -161,7 +161,7 @@ export default function TabsRender ({handlePlay, btnUrl, playPause}) {
                               
                               <div className="mr-3 cursor-pointer hover:text-orange-800 text-4xl">
                                 <div 
-                                  onClick={() => handlePlay(beat.url)}
+                                  onClick={() => handlePlay(beat)}
                                   >
                                   {btnUrl === beat.url && playPause ? <AiOutlinePauseCircle /> : <BsPlayCircle />}
                                 </div>
@@ -192,7 +192,7 @@ export default function TabsRender ({handlePlay, btnUrl, playPause}) {
                             <div key={index} className="flex items-center my-2 border-b-2 pb-2">
                               <div className="mr-3 cursor-pointer hover:text-orange-800 text-4xl">
                               <div 
-                                  onClick={() => handlePlay(beat.url)}
+                                  onClick={() => handlePlay(beat)}
                                   >
                                   {btnUrl === beat.url && playPause ? <AiOutlinePauseCircle /> : <BsPlayCircle />}
                                 </div>  

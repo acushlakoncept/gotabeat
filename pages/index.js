@@ -27,11 +27,13 @@ export default function Home() {
   const [playing, setPlaying] = useState(false);
   const [showLicense, setShowLicense] = useState(false);
   const [showPlayArea, setShowPlayArea] = useState(false);
+  const [currentBeats, setCurrentBeats] = useState({});
   const [beatsUrl, setBeatsUrl] = useState('https://res.cloudinary.com/acushlakoncepts/video/upload/v1646054640/beats/The_Evolution_Of_Gayness_Instr_Master_vobplk.wav');
 
 
-  const handlePlayBtnClick = (url) => {
-    setBeatsUrl(url);
+  const handlePlayBtnClick = (beat) => {
+    setBeatsUrl(beat.url);
+    setCurrentBeats(beat);
   }
 
   useEffect( () => {
@@ -83,8 +85,8 @@ export default function Home() {
       <Hero />
       <TabsRender btnUrl={beatsUrl} playPause={
         showPlayArea && wavesurfer.current.isPlaying()
-      } handlePlay={(url) => {
-        handlePlayBtnClick(url)
+      } handlePlay={(beat) => {
+        handlePlayBtnClick(beat)
         handlePlayPause()
         }}/>
 
@@ -100,8 +102,12 @@ export default function Home() {
           <div id="waveform" ref={waveformRef} className="container" />
           { showPlayArea &&
           <div className="controls flex items-center justify-center relative w-full">
+              {currentBeats && 
+                <span className='font-bold mr-4'>{currentBeats.name}</span>
+              }
             <div className='my-4 mr-4 text-5xl' onClick={handlePlayPause}>{(showPlayArea && wavesurfer.current.isPlaying()) ? <AiOutlinePauseCircle /> : <BsPlayCircle />}</div>
             <div>
+              
               <Button onClick={()=> setShowLicense(!showLicense)} className="rounded-full flex justify-between items-center">
                 Buy licensed 
                 <span className='text-3xl ml-2'><RiArrowDownSLine /></span>
