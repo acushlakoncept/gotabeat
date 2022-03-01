@@ -24,7 +24,7 @@ export default function Navbar() {
             width="139px"
             height="75px"
             fill="layout"
-            src="/logo_w.png" className="mr-3 h-10" alt="Got A Beat" />
+            src="/logo.png" className="mr-3 h-10" alt="Got A Beat" />
           </a>
         </ActiveLink>
         <button

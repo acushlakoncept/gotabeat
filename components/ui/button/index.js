@@ -30,7 +30,7 @@ export default function Button({
   <button 
     disabled={false} 
     {...rest}
-    className={`${sizeClass} disabled:opacity-50 disabled:cursor-not-allowed border rounded-md font-medium ${className} ${variants[variant]}`}>
+    className={`${sizeClass} disabled:opacity-50 disabled:cursor-not-allowed border font-medium ${className} ${variants[variant]}`}>
       {children}
   </button>
   )
