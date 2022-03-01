@@ -9,6 +9,8 @@ import { Button, Loader } from '@components/ui';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { toast } from 'react-toastify';
 
+import { BEATS, GENRES, MOODS } from '@content/beats';
+
 const formWaveSurferOptions = (ref) => ({
   container: ref,
   waveColor: "#555",
@@ -28,6 +30,7 @@ export default function Home() {
   const [showLicense, setShowLicense] = useState(false);
   const [showPlayArea, setShowPlayArea] = useState(false);
   const [currentBeats, setCurrentBeats] = useState({});
+  const [searchRes, setSearchRes] = useState([]);
   const [beatsUrl, setBeatsUrl] = useState('https://res.cloudinary.com/acushlakoncepts/video/upload/v1646054640/beats/The_Evolution_Of_Gayness_Instr_Master_vobplk.wav');
 
 
@@ -35,6 +38,10 @@ export default function Home() {
     setBeatsUrl(beat.url);
     setCurrentBeats(beat);
   }
+
+  useEffect(() => {
+    document.querySelector('.searchBeats').focus();
+  }, [])
 
   useEffect( () => {
     const WaveSurfer = async () => {
@@ -73,6 +80,19 @@ export default function Home() {
 
   const notify = () => toast("License added to cart");
 
+  const handleSearch = (e) => {
+    const searchValue = e.target.value;
+    const filteredGenre = GENRES.filter(genre => genre.toLowerCase().includes(searchValue.toLowerCase()));
+    const filteredMoods = MOODS.filter(mood => mood.toLowerCase().includes(searchValue.toLowerCase()));
+    const filteredBeats = BEATS.filter(beat => beat.name.toLowerCase().includes(searchValue.toLowerCase()));
+    let results = [];
+    filteredBeats?.map(beat => {
+      results.push(beat.name);
+    })
+    results = [...results, ...filteredGenre, ...filteredMoods];
+    setSearchRes(results);
+  }
+
 
   return (
     <>
@@ -82,7 +102,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Hero />
+      <Hero handleSearch={handleSearch} searchResults={searchRes} />
       <TabsRender btnUrl={beatsUrl} playPause={
         showPlayArea && wavesurfer.current.isPlaying()
       } handlePlay={(beat) => {
@@ -101,7 +121,7 @@ export default function Home() {
         <div className="waveform-container flex flex-col items-center justify-center py-4">
           <div id="waveform" ref={waveformRef} className="container" />
           { showPlayArea &&
-          <div className="controls flex items-center justify-center relative w-full">
+          <div className="controls flex flex-wrap items-center justify-center relative w-full">
               {currentBeats && 
                 <span className='font-bold mr-4'>{currentBeats.name}</span>
               }
