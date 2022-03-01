@@ -1,5 +1,4 @@
 
-
 const BEATS = [
   {
     name: "Heaven's Gate Instrumental",
@@ -9,15 +8,6 @@ const BEATS = [
     collection: "Public Domain",
     trending: true,
     published: '23-02-2022'
-  },
-  {
-    name: "Stay Home Instrumental",
-    url: "https://res.cloudinary.com/acushlakoncepts/video/upload/v1646054664/beats/Stay_Home_Instrumental_Master_mqrtac.aiff",
-    mood: ["Action", "Feel Good", "Uplifting", "Relaxation", "Thriller", "Workout", "Aerobics"],
-    genre: ["Rock", "Jazz", "Hip Hop"],
-    collection: "Public Domain",
-    trending: true,
-    published: '23-01-2022',
   },
    {
     name: "The Evolution of Gayness Instrumental",
@@ -46,15 +36,7 @@ const BEATS = [
     trending: true,
     published: '23-04-2021',
   },
-   {
-    name: "Fertility Gods Instrumental",
-    url: "https://res.cloudinary.com/acushlakoncepts/video/upload/v1646054611/beats/Fertility_Gods_INSTRUMENTAL_2015_MASTER_yqcywx.aiff",
-    mood: ["Sad", "Epic", "Bizarre", "Dark", "Somber"],
-    genre: ["Electro Pop", "Jazz", "Electronic", "Audio Logos"],
-    collection: "Mardi Gras",
-    trending: false,
-    published: '26-02-2021',
-  },
+
   {
     name: "Freedom Remix Instrumental",
     url: "https://res.cloudinary.com/acushlakoncepts/video/upload/v1646054602/beats/Freedom_Remix_INST_iyj9ct.wav",
