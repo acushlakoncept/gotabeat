@@ -9,7 +9,7 @@ import { ActiveLink } from "@components/ui";
 import Image from "next/image";
 
 
-export default function TabsRender () {
+export default function TabsRender ({handlePlay}) {
   const [openTab, setOpenTab] = useState(1);
 
   const collections = BEATS.reduce((acc, beat) => {
@@ -128,7 +128,8 @@ export default function TabsRender () {
                         <div className="flex flex-col p-3">
                           { BEATS.slice(0,4).map((beat, index) => (
                             <div key={index} className="flex items-center my-2 border-b-2 pb-2">
-                              <span className="mr-3 cursor-pointer hover:text-orange-800 text-4xl"><BsPlayCircle /></span>
+                              <span className="mr-3 cursor-pointer hover:text-orange-800 text-4xl"><BsPlayCircle 
+                              onClick={handlePlay} /></span>
                               <div>
                                 <h4 className="font-bold">{beat.name}</h4>
                                 <p>

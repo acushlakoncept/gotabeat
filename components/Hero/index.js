@@ -20,10 +20,6 @@ export default function Hero () {
           <input type="search" w-full name="q" className="py-2 text-md text-white bg-gray-300 rounded-full pl-10 focus:outline-none focus:bg-white focus:text-gray-900" placeholder="Search..." autoComplete="off" />
         </div>
       </div>
-
-      <TabsRender />
-
-    
     </>
   )
 }

@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { BaseLayout } from '@components/ui/layout'
 import Hero from '@components/Hero';
+import TabsRender from '@components/tabs';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       </Head>
 
       <Hero />
+      <TabsRender handlePlay={() => console.log("Playing...")} />
 
     </>
   )
