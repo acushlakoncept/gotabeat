@@ -2,14 +2,14 @@ import { useState } from "react";
 import { FiMusic } from "react-icons/fi";
 import { BsCollection, BsUiRadiosGrid, BsPlayCircle } from "react-icons/bs";
 import { RiEmotionHappyLine } from "react-icons/ri";
-import { AiOutlineStar, AiOutlineCalendar } from "react-icons/ai";
+import { AiOutlineStar, AiOutlineCalendar, AiOutlinePauseCircle } from "react-icons/ai";
 import { BiBarChart } from "react-icons/bi"
 import {BEATS, GENRES, MOODS} from "@content/beats";
 import { ActiveLink } from "@components/ui";
 import Image from "next/image";
 
 
-export default function TabsRender ({handlePlay}) {
+export default function TabsRender ({handlePlay, btnUrl, playPause}) {
   const [openTab, setOpenTab] = useState(1);
 
   const collections = BEATS.reduce((acc, beat) => {
@@ -128,8 +128,14 @@ export default function TabsRender ({handlePlay}) {
                         <div className="flex flex-col p-3">
                           { BEATS.slice(0,4).map((beat, index) => (
                             <div key={index} className="flex items-center my-2 border-b-2 pb-2">
-                              <span className="mr-3 cursor-pointer hover:text-orange-800 text-4xl"><BsPlayCircle 
-                              onClick={handlePlay} /></span>
+                              <span className="mr-3 cursor-pointer hover:text-orange-800 text-4xl">
+                                <div 
+                                  onClick={() => handlePlay(beat.url)}
+                                  >
+                                  {btnUrl === beat.url && playPause ? <AiOutlinePauseCircle /> : <BsPlayCircle />}
+                                </div>
+                                
+                              </span>
                               <div>
                                 <h4 className="font-bold">{beat.name}</h4>
                                 <p>
@@ -152,7 +158,15 @@ export default function TabsRender ({handlePlay}) {
                         <div className="flex flex-col p-3">
                           { BEATS.map((beat, index) => ( beat.trending &&
                             <div key={index} className="flex items-center my-2 border-b-2 pb-2">
-                              <span className="mr-3 cursor-pointer hover:text-orange-800 text-4xl"><BsPlayCircle /></span>
+                              
+                              <div className="mr-3 cursor-pointer hover:text-orange-800 text-4xl">
+                                <div 
+                                  onClick={() => handlePlay(beat.url)}
+                                  >
+                                  {btnUrl === beat.url && playPause ? <AiOutlinePauseCircle /> : <BsPlayCircle />}
+                                </div>
+                              </div>
+
                               <div>
                                 <h4 className="font-bold">{beat.name}</h4>
                                 <p>
@@ -176,7 +190,13 @@ export default function TabsRender ({handlePlay}) {
                         <div className="flex flex-col p-3">
                           { BEATS.map((beat, index) => ( !beat.trending &&
                             <div key={index} className="flex items-center my-2 border-b-2 pb-2">
-                              <span className="mr-3 cursor-pointer hover:text-orange-800 text-4xl"><BsPlayCircle /></span>
+                              <div className="mr-3 cursor-pointer hover:text-orange-800 text-4xl">
+                              <div 
+                                  onClick={() => handlePlay(beat.url)}
+                                  >
+                                  {btnUrl === beat.url && playPause ? <AiOutlinePauseCircle /> : <BsPlayCircle />}
+                                </div>  
+                              </div>
                               <div>
                                 <h4 className="font-bold">{beat.name}</h4>
                                 <p>
