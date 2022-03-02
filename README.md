@@ -4,6 +4,8 @@ Music producers with approved accounts can upload instrumentals (WAV or AIFF fil
 
 Each beat shows a waveform that lets you click to different points in the instrumental, and have a “License” button next to it, which takes you to a page giving you three options of license types “Single Use”, “Non-Exclusive License” and “Exclusive License”.
 
+[Next JS][TailwindCSS]
+
 [Live Demo](https://gotabeat.vercel.app/)
 
 ![screenshot](./screenshot.jpeg)
