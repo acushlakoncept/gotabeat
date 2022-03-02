@@ -114,7 +114,7 @@ export default function Dashboard() {
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
                   <div className="-mx-3 my-6 p-10 flex flex-wrap">
                      { BEATS.map((beat, index) => (
-                       <div key={index} className="w-1/2 sm:w-1/3 my-3 px-3 flex items-center border-r-2">
+                       <div key={index} className="w-full sm:w-1/3 my-3 px-3 flex items-center border-r-2">
                          <span className='text-xl pb-3 cursor-pointer'><BsPlayCircle /> </span>
                         <ActiveLink href="/#">
                           <a  className="block w-full mx-3 pb-3 text-gray-700 hover:text-orange-600 border-b-2">{beat.name}</a>
