@@ -21,7 +21,9 @@ const formWaveSurferOptions = (ref) => ({
   responsive: true,
   height: 50,
   normalize: true,
-  partialRender: true
+  partialRender: true,
+  // backend: 'MediaElement',
+  pixelRatio: 1,
 });
 export default function Home() {
   const waveformRef = useRef(null);
